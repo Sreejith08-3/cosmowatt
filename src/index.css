@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #020612;
+    color: #e2e8f0;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom glassmorphism scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 246, 255, 0.25);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 246, 255, 0.5);
+  }
+}
+
+/* Liquid Glass Utilities */
+.liquid-glass {
+  background: rgba(9, 19, 43, 0.58);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 246, 255, 0.15);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 2px 0 rgba(0, 246, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass:hover {
+  border-color: rgba(0, 246, 255, 0.35);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 246, 255, 0.12),
+    0 8px 32px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 4px 0 rgba(0, 246, 255, 0.2);
+}
+
+/* Prismatic Liquid Glass Card */
+.liquid-glass-card {
+  background: linear-gradient(135deg, rgba(13, 27, 62, 0.6) 0%, rgba(6, 12, 29, 0.75) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 246, 255, 0.3);
+  box-shadow: 
+    0 20px 40px -12px rgba(0, 246, 255, 0.18),
+    0 10px 30px -10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Specular Sheen Animation */
+.glass-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(0, 246, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.06) 60%,
+    transparent 80%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: transform 0.8s ease;
+}
+
+.glass-sheen:hover::after {
+  transform: rotate(25deg) translate(25%, 25%);
+}
+
+/* Text Glows */
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 246, 255, 0.6), 0 0 40px rgba(0, 246, 255, 0.2);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6), 0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+/* Radial Gradient Masks */
+.radial-mask {
+  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+/* Cosmic Stars Canvas / Grid */
+.cosmic-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Interactive Button Fluid Glow */
+.btn-fluid {
+  position: relative;
+  background: linear-gradient(135deg, #00f6ff 0%, #0077b6 50%, #7c3aed 100%);
+  background-size: 200% 200%;
+  animation: liquidFlow 6s ease infinite;
+  box-shadow: 0 0 20px rgba(0, 246, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-fluid:hover {
+  box-shadow: 0 0 35px rgba(0, 246, 255, 0.65), 0 0 15px rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 246, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+  background: rgba(0, 246, 255, 0.1);
+  border-color: rgba(0, 246, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 246, 255, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Energy Ray / Beam Animation */
+@keyframes energyPulse {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.energy-line-animated {
+  stroke-dasharray: 20, 10;
+  animation: energyPulse 15s linear infinite;
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
